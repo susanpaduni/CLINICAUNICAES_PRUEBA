@@ -23,7 +23,7 @@
             Console.WriteLine();
             Console.WriteLine("Seleccione una opcion:");
 
-            if (int.Parse(Console.ReadLine(), out opcion))
+            if (int.TryParse(Console.ReadLine(), out opcion))
             {
                 switch (opcion)
                 {
@@ -82,7 +82,7 @@
             Console.WriteLine("4. Regresar");
             Console.WriteLine("Seleccione una opcion:");
 
-            if (int.TryParse(Console.ReadLine(),out opcion))
+            if (int.TryParse(Console.ReadLine(), out opcion))
             {
                 switch (opcion)
                 {
@@ -101,20 +101,20 @@
                         sangre = Console.ReadLine();
                         Console.Write("Numero de telefono: ");
                         telefono = Console.ReadLine();
-                        registrado= true;
+                        registrado = true;
                         Console.WriteLine("Paciente registrado exitosamente.");
-                        Console.Readine();
+                        Console.ReadLine();
                         break;
                     case 2:
 
                         Console.Clear();
                         Console.WriteLine("Consultar paciente");
                         Console.Write("Ingrese el numero de expediente del paciente: ");
-                       string busqueda = Console.ReadLine();
+                        string busqueda = Console.ReadLine();
                         if (registrado && busqueda == expediente)
                         {
-                            Console.WriteLine("Paciente encontrado: " + nombre + "Expediente: "+ expediente);
-                           
+                            Console.WriteLine("Paciente encontrado: " + nombre + "Expediente: " + expediente);
+
                         }
                         else
                         {
@@ -123,28 +123,106 @@
                         }
                         Console.ReadLine();
                         break;
-                        case 3:
+                    case 3:
                         Console.Clear();
                         Console.WriteLine("Informacion registrada");
                         if (registrado)
                         {
-                            Console.WriteLine("Expediente: "+ expediente);
-                            Console.WriteLine("Nombre: " + nombre );
+                            Console.WriteLine("Expediente: " + expediente);
+                            Console.WriteLine("Nombre: " + nombre);
                             Console.WriteLine("Edad:  años" + edad);
                             Console.WriteLine("Sexo: " + sexo);
                             Console.WriteLine("Tipo de Sangre: " + sangre);
                             Console.WriteLine("Teléfono:" + telefono);
                         }
+                        else
+                        {
+                            Console.WriteLine("No hay informacion registrada.");
+                        }
+                        Console.ReadLine();
+                        break;
+                }
+            }
+
+        } while (opcion != 4);
+            
+
+    }
+    //MODULO PACIENTES
+    static void MenuMedicos()
+    {
+        string codigoMedico = "", nombreMedico = "", especialidad = "", horario = "";
+        int experiencia = 0;
+        bool registrado = false;
+
+        int opcion = 0;
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("=======ADMINISTRACIÓN DE MÉDICOS=======");
+            Console.WriteLine("1. Registrar médico");
+            Console.WriteLine("2. Consultar médico");
+            Console.WriteLine("3. Mostrar información registrada");
+            Console.WriteLine("4. Regresar");
+            Console.Write("Seleccione una opción: ");
+            if (int.TryParse(Console.ReadLine(), out opcion))
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Registrar Médico");
+                        Console.Write("Código del médico: ");
+                        codigoMedico = Console.ReadLine();
+                        Console.Write("Nombre completo: ");
+                        nombreMedico = Console.ReadLine();
+                        Console.Write("Especialidad: ");
+                        especialidad = Console.ReadLine();
+                        Console.Write("Años de experiencia: ");
+                        int.TryParse(Console.ReadLine(), out experiencia);
+                        Console.Write("Horario de atención: ");
+                        horario = Console.ReadLine();
+                        registrado = true;
+                        Console.WriteLine("Médico registrado exitosamente.");
+                        Console.ReadLine();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Consultar Médico");
+                        Console.Write("Ingrese el código del médico: ");
+                        string busqueda = Console.ReadLine();
+                        if (registrado && busqueda == codigoMedico)
+                        {
+                            Console.WriteLine("Médico encontrado: " + nombreMedico + " Código: " + codigoMedico);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Médico no encontrado o sin registros.");
+                        }
+                        Console.ReadLine();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Información registrada");
+                        if (registrado)
+                        {
+                            Console.WriteLine("Código del médico: " + codigoMedico);
+                            Console.WriteLine("Nombre: " + nombreMedico);
+                            Console.WriteLine("Especialidad: " + especialidad);
+                            Console.WriteLine("Años de experiencia: " + experiencia);
+                            Console.WriteLine("Horario de atención: " + horario);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay información registrada.");
+                        }
+                        Console.ReadLine();
+                        break;
+                }
             }
 
 
-
-        }
-
-    }
-
-    static void MenuMedicos()
-    {
+        } while (opcion != 4);
     }
 
     static void MenuConsultorios()
