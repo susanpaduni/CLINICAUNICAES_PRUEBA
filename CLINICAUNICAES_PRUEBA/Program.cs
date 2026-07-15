@@ -130,7 +130,7 @@
                         {
                             Console.WriteLine("Expediente: " + expediente);
                             Console.WriteLine("Nombre: " + nombre);
-                            Console.WriteLine("Edad:  años" + edad);
+                            Console.WriteLine("Edad:" + edad );
                             Console.WriteLine("Sexo: " + sexo);
                             Console.WriteLine("Tipo de Sangre: " + sangre);
                             Console.WriteLine("Teléfono:" + telefono);
@@ -244,7 +244,7 @@
         int espaciosDisponibles = capacidad - esperando;
 
         Console.WriteLine("Resumen de consultorio");
-        Console.WriteLine("Numero de consultorio:" + numeroConsultorio + "Piso: "+ piso);
+        Console.WriteLine("Numero de consultorio:" + numeroConsultorio + " Piso: "+ piso);
         Console.WriteLine("Disponibilidad: "+ disponible);
 
         if (esperando > capacidad)
@@ -268,7 +268,7 @@
         Console.WriteLine("=======ADMINISTRACIÓN DE CITAS MÉDICAS=======");
 
         Console.Write("Número de cita: ");
-        string numCita = int.Parse(Console.ReadLine());
+        string numCita =Console.ReadLine();
         Console.Write("Nombre del paciente: ");
         string nomPaciente = Console.ReadLine();
         Console.Write("Nombre del médico: ");
@@ -287,7 +287,7 @@
             Console.WriteLine($"Cita N°: "+ numCita);
             Console.WriteLine($"Paciente: " +  nomPaciente);
             Console.WriteLine($"Médico: " + nomMedico);
-            Console.WriteLine($"Fecha y Hora:" + fecha + "a las " + hora);
+            Console.WriteLine($"Fecha y Hora:" + fecha + " a las " + hora);
             Console.WriteLine($"Tipo: " + tipo);
         }
         else
@@ -301,7 +301,30 @@
 
     static void MenuEspecialidades()
     {
+        Console.Clear();
+        Console.WriteLine("=======ADMINISTRACIÓN DE ESPECIALIDADES=======");
+
+        Console.Write("Nombre de la especialidad: ");
+        string nombreEspecialidad = Console.ReadLine();
+        Console.Write("Cantidad de médicos asignados: ");
+        int medicosAsignados = int.Parse(Console.ReadLine());
+        Console.Write("Cantidad de consultorios disponibles: ");
+        int consultoriosDisponibles = int.Parse(Console.ReadLine());
+        Console.Write("Responsable del área: ");
+        string responsable = Console.ReadLine();
+
+        Console.Clear();
+
+        Console.WriteLine("Informacion de la especialidad ");
+        Console.WriteLine("Especialidad: " + nombreEspecialidad);
+        Console.WriteLine("Responsable: " + responsable);
+        Console.WriteLine("Médicos Asignados: " + medicosAsignados);
+        Console.WriteLine("Consultorios Disponibles:" + consultoriosDisponibles);
+        Console.WriteLine("=========================================");
+
+        Console.WriteLine("Presione Enter para regresar...");
+        Console.ReadLine();
+
     }
-
-
 }
+
