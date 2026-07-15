@@ -113,7 +113,7 @@
                         string busqueda = Console.ReadLine();
                         if (registrado && busqueda == expediente)
                         {
-                            Console.WriteLine("Paciente encontrado: " + nombre + "Expediente: " + expediente);
+                            Console.WriteLine("Paciente encontrado: " + nombre + " Expediente: " + expediente);
 
                         }
                         else
