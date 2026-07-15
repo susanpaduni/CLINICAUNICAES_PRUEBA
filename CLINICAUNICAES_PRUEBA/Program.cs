@@ -227,6 +227,38 @@
 
     static void MenuConsultorios()
     {
+        Console.WriteLine("=======ADMINISTRACION DE CONSULTORIOS=======");
+        
+        Console.Write("Numero de consultorio: ");
+        int numeroConsultorio = int.Parse(Console.ReadLine());
+        Console.Write("Piso: ");
+        int piso = int.Parse(Console.ReadLine());
+        Console.Write("Capacidad de pacientes en espera: ");
+        int capacidad = int.Parse(Console.ReadLine());
+        Console.Write ("Cantidad de pacientes esperando actualmente: ");
+        int esperando = int.Parse(Console.ReadLine());
+        Console.Write("Consultorio disponible?: ");
+        string disponible = Console.ReadLine();
+
+
+        int espaciosDisponibles = capacidad - esperando;
+
+        Console.WriteLine("Resumen de consultorio");
+        Console.WriteLine("Numero de consultorio:" + numeroConsultorio + "Piso: "+ piso);
+        Console.WriteLine("Disponibilidad: "+ disponible);
+
+        if (esperando > capacidad)
+        {
+            Console.WriteLine("La cantidad de pacientes supera la capacidad de la sala de espera");
+            Console.WriteLine("Espacios excedidos:" + Math.Abs(espaciosDisponibles));
+        }
+        else
+        {
+            Console.WriteLine("Espacios disponibles: " + espaciosDisponibles);
+        }
+        Console.WriteLine("Presione Enter para regresar al menu principal.");
+        Console.ReadLine();
+
     }
     static void MenuCitas()
     {
