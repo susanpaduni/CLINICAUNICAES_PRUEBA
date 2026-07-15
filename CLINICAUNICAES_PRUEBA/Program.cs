@@ -260,8 +260,43 @@
         Console.ReadLine();
 
     }
+
+    //MODULO CITAS
     static void MenuCitas()
     {
+        Console.Clear();
+        Console.WriteLine("=======ADMINISTRACIÓN DE CITAS MÉDICAS=======");
+
+        Console.Write("Número de cita: ");
+        string numCita = int.Parse(Console.ReadLine());
+        Console.Write("Nombre del paciente: ");
+        string nomPaciente = Console.ReadLine();
+        Console.Write("Nombre del médico: ");
+        string nomMedico = Console.ReadLine();
+        Console.Write("Fecha (DD/MM/AAAA): ");
+        string fecha = Console.ReadLine();
+        Console.Write("Hora (HH:MM): ");
+        string hora = Console.ReadLine();
+        Console.Write("Tipo de consulta (General o Especializada): ");
+        string tipo = Console.ReadLine();
+
+        if (!string.IsNullOrEmpty(numCita) && !string.IsNullOrEmpty(nomPaciente))
+        {
+            Console.WriteLine("¡La cita fue registrada!");
+            Console.WriteLine("DETALLES DE LA CITA");
+            Console.WriteLine($"Cita N°: "+ numCita);
+            Console.WriteLine($"Paciente: " +  nomPaciente);
+            Console.WriteLine($"Médico: " + nomMedico);
+            Console.WriteLine($"Fecha y Hora:" + fecha + "a las " + hora);
+            Console.WriteLine($"Tipo: " + tipo);
+        }
+        else
+        {
+            Console.WriteLine(" No se pudo registrar la cita. Faltan datos esenciales.");
+        }
+
+        Console.WriteLine("Presione Enter para regresar.");
+        Console.ReadLine();
     }
 
     static void MenuEspecialidades()
